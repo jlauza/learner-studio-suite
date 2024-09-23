@@ -26,7 +26,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AntdRegistry>{children}</AntdRegistry>
+        <div className="App">
+          <AntdRegistry>{children}</AntdRegistry>
+        </div>
       </body>
     </html>
   );
