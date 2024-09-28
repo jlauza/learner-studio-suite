@@ -1,21 +1,16 @@
 import UserCard from "./user-info/UserCard";
 import { options } from "./api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
+import ServerPage from "./server/page";
 
 export default function Home() {
   const session = getServerSession(options);
   console.log(session);
   return (
     <>
-      {/* {session ? (
-        // <UserCard pageTpe={"Dashboard"} />
-        <h1>Welcome, {session}</h1>
-      ) : (
-        "View for not logged in."
-      )} */}
+      {session ? <ServerPage session={session} /> : "View for not logged in."}
 
-      <>
-        <div className="min-h-screen flex flex-col">
+      {/* <div className="min-h-screen flex flex-col">
           <nav className="flex justify-between items-center p-6 bg-gray-900 text-white">
             <div className="text-xl font-bold">MyWebsite</div>
             <div className="space-x-6">
@@ -104,8 +99,7 @@ export default function Home() {
               &copy; {new Date().getFullYear()} MyWebsite. All rights reserved.
             </p>
           </footer>
-        </div>
-      </>
+        </div> */}
     </>
   );
 }

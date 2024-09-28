@@ -1,4 +1,4 @@
-"use client";
+`use client`;
 
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
@@ -10,6 +10,8 @@ export default async function ClientPage() {
       redirect("/api/auth/signin?callbackUrl=/client");
     },
   });
+
+  console.log(data);
 
   return (
     <>
