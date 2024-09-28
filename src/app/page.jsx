@@ -8,7 +8,7 @@ import { signOut } from "next-auth/react";
 export default function Home() {
   const { session } = getServerSession(options);
 
-  console.log(session);
+  console.log("Main site: ", session);
 
   return (
     <>

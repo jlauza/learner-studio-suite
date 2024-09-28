@@ -3,5 +3,9 @@ export { default } from "next-auth/middleware";
 
 // Define your protected pages here
 export const config = {
-  matcher: ["/extra", "/dashboard", "/server", "/client"],
+  matcher: [
+    "/extra",
+    "/dashboard",
+    // "/server", "/client"
+  ],
 };
