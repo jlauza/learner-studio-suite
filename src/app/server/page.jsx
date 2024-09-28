@@ -1,3 +1,5 @@
+`user server`;
+
 import { options } from "../api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
@@ -16,7 +18,7 @@ export default async function ServerPage() {
     <>
       <h1>You are logged in. This is the server page.</h1>
       {/* This is your guide to the server page. */}
-      <UserCard user={session?.user} pagetype={"Server"} />
+      <UserCard user={session?.user} pagetype={"Profile"} />
     </>
   );
 }
