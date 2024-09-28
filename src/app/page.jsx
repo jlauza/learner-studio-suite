@@ -9,6 +9,8 @@ export default function Home() {
   const { session } = getServerSession(options);
 
   console.log("Main site: ", session);
+  console.log("signin: ", signIn);
+  console.log("signout: ", signOut);
 
   return (
     <>
