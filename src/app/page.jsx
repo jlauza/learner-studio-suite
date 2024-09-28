@@ -1,7 +1,7 @@
 import UserCard from "./user-info/UserCard";
 import { options } from "./api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
-import ServerPage from "./server/page";
+import Dashboard from "./dashboard/page";
 import { signIn } from "next-auth/react";
 import { signOut } from "next-auth/react";
 
@@ -14,14 +14,15 @@ export default function Home() {
 
   return (
     <>
+      {session ? <Dashboard /> : "Not logged in.  "}
       <div className="min-h-screen flex flex-col">
         <nav className="flex justify-between items-center p-6 bg-gray-900 text-white">
-          <div className="text-xl font-bold">MyWebsite</div>
+          <div className="text-xl font-bold">Project Me</div>
           <div className="space-x-6">
             {session ? (
               <>
-                <a href="/server" className="hover:text-gray-300">
-                  Server
+                <a href="/dashboard" className="hover:text-gray-300">
+                  Dashboard
                 </a>
               </>
             ) : (
@@ -34,23 +35,19 @@ export default function Home() {
               Contact
             </a>
             {session ? (
-              <>
-                <a
-                  href="/api/auth/signout"
-                  className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
-                >
-                  Logout
-                </a>
-              </>
+              <a
+                href="/api/auth/signout"
+                className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
+              >
+                Logout
+              </a>
             ) : (
-              <>
-                <a
-                  href="/api/auth/signin"
-                  className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
-                >
-                  Login
-                </a>
-              </>
+              <a
+                href="/api/auth/signin"
+                className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
+              >
+                Login
+              </a>
             )}
           </div>
         </nav>
