@@ -2,6 +2,7 @@
 
 import React from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { SessionProvider } from "next-auth/react";
 
 import localFont from "next/font/local";
 import "./globals.css";
@@ -29,7 +30,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="App">
-          <AntdRegistry>{children}</AntdRegistry>
+          <SessionProvider>
+            <AntdRegistry>{children}</AntdRegistry>
+          </SessionProvider>
         </div>
       </body>
     </html>
