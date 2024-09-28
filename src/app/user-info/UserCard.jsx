@@ -1,11 +1,11 @@
 import React from "react";
 import { options } from "../api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
-import { Button } from "@mantine/core";
 import Link from "next/link";
 
 export default async function UserCard() {
   const session = await getServerSession(options);
+  console.log(session);
 
   return (
     <>
@@ -23,7 +23,7 @@ export default async function UserCard() {
       </ul>
       {/* <a href="/api/auth/signout">Sign out</a> */}
       <Link href="/api/auth/signout">
-        <Button variant="filled">Sign Out</Button>
+        <button variant="filled">Sign Out</button>
       </Link>
     </>
   );
