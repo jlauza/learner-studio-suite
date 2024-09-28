@@ -1,3 +1,5 @@
+// This page is equevalent to _app.js
+
 import React from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 
