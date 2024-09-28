@@ -14,7 +14,6 @@ export default function Home() {
 
   return (
     <>
-      {session ? <Dashboard /> : "Not logged in.  "}
       <div className="min-h-screen flex flex-col">
         <nav className="flex justify-between items-center p-6 bg-gray-900 text-white">
           <div className="text-xl font-bold">Project Me</div>
