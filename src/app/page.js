@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -14,7 +12,7 @@ export default function Home() {
             Contact
           </a>
           <a
-            href="#login"
+            href="/api/auth/signin"
             className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
           >
             Login

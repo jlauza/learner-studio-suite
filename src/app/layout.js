@@ -2,7 +2,7 @@
 
 import React from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { SessionProvider } from "next-auth/react";
+import AuthProvider from "./context/AuthProvider";
 
 import localFont from "next/font/local";
 import "./globals.css";
@@ -25,15 +25,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="App">
-          <SessionProvider>
-            <AntdRegistry>{children}</AntdRegistry>
-          </SessionProvider>
-        </div>
+        <AntdRegistry>
+          <AuthProvider>{children}</AuthProvider>
+        </AntdRegistry>
       </body>
     </html>
   );
