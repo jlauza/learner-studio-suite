@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import GitHubSignIn from "./GitHubSingInButton";
 
-export default function SignInForm({ providers }) {
+export default function SignInForm() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="mx-auto p-8 w-full max-w-lg bg-gray-800 shadow-md rounded-lg">
