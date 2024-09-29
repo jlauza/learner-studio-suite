@@ -16,6 +16,7 @@ export default async function Dashboard() {
   return (
     <>
       <h1>Welcome to dashboard, {session.user?.name}</h1>
+      <a href="/api/auth/signout">Logout</a>
     </>
   );
 }

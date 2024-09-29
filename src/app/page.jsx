@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth/next";
 import Dashboard from "./dashboard/page";
 import { signIn } from "next-auth/react";
 import { signOut } from "next-auth/react";
+import LoginBtn from "@/components/login-btn";
 
 export default function Home() {
   const { session } = getServerSession(options);
@@ -41,12 +42,14 @@ export default function Home() {
                 Logout
               </a>
             ) : (
-              <a
-                href="/api/auth/signin"
-                className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
-              >
-                Login
-              </a>
+              <>
+                <a
+                  href="/api/auth/signin"
+                  className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
+                >
+                  Login
+                </a>
+              </>
             )}
           </div>
         </nav>
