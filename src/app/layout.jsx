@@ -1,11 +1,11 @@
 // This page is equevalent to _app.js
-
 import React from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import AuthProvider from "./context/AuthProvider";
 
 import localFont from "next/font/local";
 import "./globals.css";
+import { options } from "./api/auth/[...nextauth]/options";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
