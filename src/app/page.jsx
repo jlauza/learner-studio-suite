@@ -1,17 +1,8 @@
-import UserCard from "./user-info/UserCard";
 import { options } from "./api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
-import Dashboard from "./dashboard/page";
-import { signIn } from "next-auth/react";
-import { signOut } from "next-auth/react";
-import LoginBtn from "@/components/login-btn";
 
 export default function Home() {
   const { session } = getServerSession(options);
-
-  console.log("Main site: ", session);
-  console.log("signin: ", signIn);
-  console.log("signout: ", signOut);
 
   return (
     <>

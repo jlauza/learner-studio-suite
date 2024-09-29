@@ -1,9 +1,6 @@
 import React from "react";
-import Github from "next-auth/providers/github";
-import { signIn, getProviders } from "next-auth/react";
 import Link from "next/link";
-import { GithubOutlined } from "@ant-design/icons";
-import Image from "next/image";
+import GitHubSignIn from "./GitHubSingInButton";
 
 export default function SignInForm({ providers }) {
   return (
@@ -30,7 +27,6 @@ export default function SignInForm({ providers }) {
               create a new account.
             </Link>
           </p>
-
           {/* [Form goes here] */}
           <form action="/api/auth/callback/credentials">
             <div className="mb-4">
@@ -67,7 +63,6 @@ export default function SignInForm({ providers }) {
               Sign In
             </button>
           </form>
-
           <div className="relative my-8">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-zinc-300"></div>
@@ -76,13 +71,7 @@ export default function SignInForm({ providers }) {
               <span className="bg-white px-4 text-zinc-400">or</span>
             </div>
           </div>
-
-          <button
-            className="bg-white border border-zinc-300 py-2 rounded-md w-full text-zinc-700 hover:bg-zinc-50 transition"
-            onClick={signIn("github")}
-          >
-            <GithubOutlined /> Sign in with GitHub
-          </button>
+          <GitHubSignIn />
         </div>
       </div>
     </div>
