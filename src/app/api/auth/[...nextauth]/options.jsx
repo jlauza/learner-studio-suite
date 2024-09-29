@@ -4,7 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 
 export const options = {
   pages: {
-    signIn: "/signin",
+    signin: "/signin",
     // signOut: "/auth/signout",
     // error: "/auth/error", // Error code passed in query string as ?error=
     // verifyRequest: "/auth/verify-request", // (used for check email message)
