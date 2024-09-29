@@ -1,16 +1,24 @@
 import React from "react";
 import Github from "next-auth/providers/github";
-import { signIn } from "next-auth/react";
+import { signIn, getProviders } from "next-auth/react";
 import Link from "next/link";
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input } from "antd";
+import { GithubOutlined } from "@ant-design/icons";
+import Image from "next/image";
 
-export default function SignInForm() {
+export default function SignInForm({ providers }) {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="mx-auto p-8 w-full max-w-lg bg-gray-800 shadow-md rounded-lg">
         <h2 className="text-center text-2xl text-blue-400 mb-8 font-bold">
-          Sign in
+          <img
+            src="https://next-auth.js.org/img/logo/logo-xs.png"
+            width={80}
+            // height={500}
+            alt="Logo"
+            style={{
+              margin: "auto",
+            }}
+          />
         </h2>
         <div>
           <p className="mb-4 text-center">
@@ -24,7 +32,7 @@ export default function SignInForm() {
           </p>
 
           {/* [Form goes here] */}
-          <form>
+          <form action="/api/auth/callback/credentials">
             <div className="mb-4">
               <label className="block text-sm font-medium mb-2" htmlFor="email">
                 Email Address
@@ -69,8 +77,11 @@ export default function SignInForm() {
             </div>
           </div>
 
-          <button className="bg-white border border-zinc-300 py-2 rounded-md w-full text-zinc-700 hover:bg-zinc-50 transition">
-            <i className="bi bi-github mr-2"></i> Sign in with GitHub
+          <button
+            className="bg-white border border-zinc-300 py-2 rounded-md w-full text-zinc-700 hover:bg-zinc-50 transition"
+            onClick={signIn("github")}
+          >
+            <GithubOutlined /> Sign in with GitHub
           </button>
         </div>
       </div>
