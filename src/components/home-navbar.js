@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Image from "next/image";
 
 export default function HomeNavbar(props) {
   const session = props.session;
@@ -27,11 +26,13 @@ export default function HomeNavbar(props) {
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <Image
+              {/* <Image
+                width={80}
+                height={80}
                 alt=""
-                src="https://tailwindui.com/plus/Image/logos/mark.svg?color=indigo&shade=600"
+                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
                 className="h-8 w-auto"
-              />
+              /> */}
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -56,12 +57,25 @@ export default function HomeNavbar(props) {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a
-              href="/api/auth/signin"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+            {session ? (
+              <>
+                <a
+                  href="/api/auth/signout"
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  Log out <span aria-hidden="true">&rarr;</span>
+                </a>
+              </>
+            ) : (
+              <>
+                <a
+                  href="/api/auth/signin"
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  Log in <span aria-hidden="true">&rarr;</span>
+                </a>
+              </>
+            )}
           </div>
         </nav>
         <Dialog
@@ -74,11 +88,13 @@ export default function HomeNavbar(props) {
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <Image
+                {/* <Image
+                  width={80}
+                  height={80}
                   alt=""
-                  src="https://tailwindui.com/plus/Image/logos/mark.svg?color=indigo&shade=600"
+                  src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
                   className="h-8 w-auto"
-                />
+                /> */}
               </a>
               <button
                 type="button"
@@ -103,12 +119,25 @@ export default function HomeNavbar(props) {
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
-                    href="/api/auth/signin"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    Log in
-                  </a>
+                  {session ? (
+                    <>
+                      <a
+                        href="/api/auth/signout"
+                        className="text-sm font-semibold leading-6 text-gray-900"
+                      >
+                        Log out <span aria-hidden="true">&rarr;</span>
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      <a
+                        href="/api/auth/signin"
+                        className="text-sm font-semibold leading-6 text-gray-900"
+                      >
+                        Log in <span aria-hidden="true">&rarr;</span>
+                      </a>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

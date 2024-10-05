@@ -2,7 +2,6 @@
 import React from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import AuthProvider from "./context/AuthProvider";
-
 import localFont from "next/font/local";
 import "./globals.css";
 import { options } from "./api/auth/[...nextauth]/options";
@@ -25,9 +24,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html>
+    <html className="h-full bg-white">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={
+          (`${geistSans.variable} ${geistMono.variable} antialiased`, "h-full")
+        }
       >
         <AntdRegistry>
           <AuthProvider>{children}</AuthProvider>

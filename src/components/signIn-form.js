@@ -5,21 +5,13 @@ import Image from "next/image";
 
 export default function SignInForm() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-900">
-      <div className="mx-auto p-8 w-full max-w-lg bg-gray-800 shadow-md rounded-lg">
+    <div className="flex items-center justify-center min-h-screen bg-gray-800">
+      <div className="mx-auto p-8 w-full max-w-lg bg-gray-700 shadow-md rounded-lg">
         <h2 className="text-center text-2xl text-blue-400 mb-8 font-bold">
-          <Image
-            src="https://next-auth.js.org/Image/logo/logo-xs.png"
-            width={80}
-            // height={500}
-            alt="Logo"
-            style={{
-              margin: "auto",
-            }}
-          />
+          Welcome back!
         </h2>
         <div>
-          <p className="mb-4 text-center">
+          <p className="mb-4 text-center text-white">
             Sign in to your account or{" "}
             <Link
               href="/register"
@@ -31,7 +23,10 @@ export default function SignInForm() {
           {/* [Form goes here] */}
           <form action="/api/auth/callback/credentials">
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-2" htmlFor="email">
+              <label
+                className="block text-sm font-medium mb-2 text-white"
+                htmlFor="email"
+              >
                 Email Address
               </label>
               <input
@@ -44,7 +39,7 @@ export default function SignInForm() {
             </div>
             <div className="mb-6">
               <label
-                className="block text-sm font-medium mb-2"
+                className="block text-sm font-medium mb-2 text-white"
                 htmlFor="password"
               >
                 Password
