@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import {
   CloudArrowUpIcon,
   LockClosedIcon,
@@ -59,9 +61,9 @@ export default function MarketingHighlight() {
               </dl>
             </div>
           </div>
-          <img
+          <Image
             alt="Product screenshot"
-            src="https://tailwindui.com/plus/img/component-images/dark-project-app-screenshot.png"
+            src="https://tailwindui.com/plus/Image/component-images/dark-project-app-screenshot.png"
             width={2432}
             height={1442}
             className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"

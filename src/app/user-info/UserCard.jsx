@@ -2,6 +2,7 @@ import React from "react";
 import { options } from "../api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function UserCard() {
   const session = await getServerSession(options);
@@ -10,7 +11,7 @@ export default async function UserCard() {
     <>
       <h1>Hi {session.user?.name}, you are logged in</h1>
       <ul>
-        <img
+        <Image
           src={session.user?.image}
           alt="user image"
           width={120}

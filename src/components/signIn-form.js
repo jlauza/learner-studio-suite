@@ -1,14 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import GitHubSignIn from "./GitHubSingInButton";
+import Image from "next/image";
 
 export default function SignInForm() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="mx-auto p-8 w-full max-w-lg bg-gray-800 shadow-md rounded-lg">
         <h2 className="text-center text-2xl text-blue-400 mb-8 font-bold">
-          <img
-            src="https://next-auth.js.org/img/logo/logo-xs.png"
+          <Image
+            src="https://next-auth.js.org/Image/logo/logo-xs.png"
             width={80}
             // height={500}
             alt="Logo"

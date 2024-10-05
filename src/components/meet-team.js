@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const people = [
   {
     name: "Leslie Alexander",
@@ -57,7 +59,7 @@ export default function MeetTeam() {
           {people.map((person) => (
             <li key={person.name}>
               <div className="flex items-center gap-x-6">
-                <img
+                <Image
                   alt=""
                   src={person.imageUrl}
                   className="h-16 w-16 rounded-full"
