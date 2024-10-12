@@ -11,7 +11,7 @@ import {
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
-import { Content } from "@/app/dashboard/page";
+import AppNavbar from "./app-navbar";
 
 const user = {
   name: "Tom Cook",
@@ -40,7 +40,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default async function Shell() {
+export default async function AppShell({ children, title }) {
   const session = await getServerSession(options);
   if (!session) {
     redirect("/api/auth/signin?callbackUrl=/server");
@@ -201,16 +201,10 @@ export default async function Shell() {
           </DisclosurePanel>
         </Disclosure>
 
-        <header className="bg-white shadow">
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              Dashboard
-            </h1>
-          </div>
-        </header>
+        <AppNavbar title={title} />
         <main>
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <Content />
+            {children}
           </div>
         </main>
       </div>
