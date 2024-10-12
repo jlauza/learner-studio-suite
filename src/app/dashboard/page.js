@@ -2,21 +2,30 @@
 
 import { options } from "../api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
-import { redirect } from "next/navigation";
+import Shell from "@/components/dashboard/shell";
 
 export default async function Dashboard() {
   const session = await getServerSession(options);
-
-  console.log("server: ", session);
-
   if (!session) {
     redirect("/api/auth/signin?callbackUrl=/server");
   }
 
   return (
     <>
-      <h1>Welcome to dashboard, {session.user?.name}</h1>
-      <a href="/api/auth/signout">Logout</a>
+      <Shell />
+    </>
+  );
+}
+
+export async function Content() {
+  const session = await getServerSession(options);
+
+  if (!session) {
+    redirect("/api/auth/signin?callbackUrl=/server");
+  }
+  return (
+    <>
+      <h1>Welcome to dashboard, {session.user?.name}!</h1>
     </>
   );
 }

@@ -30,9 +30,7 @@ export default function RootLayout({ children }) {
           (`${geistSans.variable} ${geistMono.variable} antialiased`, "h-full")
         }
       >
-        <AntdRegistry>
-          <AuthProvider>{children}</AuthProvider>
-        </AntdRegistry>
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
