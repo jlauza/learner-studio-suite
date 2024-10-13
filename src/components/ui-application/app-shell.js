@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import {
   Disclosure,
@@ -12,6 +13,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import AppNavbar from "./app-navbar";
+import AppSidebar from "./app-sidebar";
 
 const user = {
   name: "Tom Cook",
@@ -41,6 +43,8 @@ function classNames(...classes) {
 }
 
 export default async function AppShell({ children, title }) {
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
+
   const session = await getServerSession(options);
   if (!session) {
     redirect("/api/auth/signin?callbackUrl=/server");
@@ -49,6 +53,7 @@ export default async function AppShell({ children, title }) {
   return (
     <>
       <div className="min-h-full">
+        <AppSidebar />
         <Disclosure as="nav" className="bg-gray-800">
           <div className="mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
