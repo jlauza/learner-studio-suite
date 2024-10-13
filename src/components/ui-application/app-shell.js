@@ -4,7 +4,7 @@ import AppNavbar from "./app-navbar";
 import AppSidebar from "./app-sidebar";
 
 export default function AppShell({ children, title }) {
-  const [sidebarOpen, setSidebarOpen] = React.useState(false);
+  const [sidebarOpen, setSidebarOpen] = React.useState(true);
 
   function clickMe() {
     setSidebarOpen((prevState) => !prevState);
@@ -12,13 +12,14 @@ export default function AppShell({ children, title }) {
 
   return (
     <>
-      <div className="min-h-full">
+      <div className="min-h-full flex flex-row">
         <AppSidebar open={sidebarOpen} />
-        <AppNavbar title={title} />
-        <main>
-          <div className="mx-auto px-4 py-6 sm:px-6 lg:px-8">{children}</div>
-          <button onClick={clickMe}>Click me</button>
-        </main>
+        <div className="flex-1">
+          <AppNavbar title={title} clickMe={clickMe} />
+          <main>
+            <div className="mx-auto px-4 py-6 sm:px-6 lg:px-8">{children}</div>
+          </main>
+        </div>
       </div>
     </>
   );

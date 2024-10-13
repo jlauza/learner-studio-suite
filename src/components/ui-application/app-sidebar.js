@@ -2,12 +2,14 @@ import { Disclosure, DisclosurePanel } from "@headlessui/react";
 import React from "react";
 
 export default function AppSidebar({ open }) {
-  console.log(open);
   return (
     <>
       <div
         style={{
           display: open ? "block" : "none",
+          height: "100vh",
+          width: "280px",
+          border: "1px solid #eee",
         }}
       >
         Yay! It works.
