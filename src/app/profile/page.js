@@ -2,6 +2,8 @@
 import { options } from "../api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 import AppShell from "@/components/ui-application/app-shell";
+import LayoutHeader from "@/components/profile/layout-header";
+import LayoutContent from "@/components/profile/layout-content";
 
 export default async function Dashboard() {
   const session = await getServerSession(options);
@@ -20,8 +22,8 @@ export default async function Dashboard() {
   return (
     <>
       <AppShell title={title} session={session}>
-        <p>Full Name: {session.user?.name}</p>
-        <p>Email: {session.user?.email}</p>
+        <LayoutHeader session={session} />
+        <LayoutContent session={session} />
       </AppShell>
     </>
   );
