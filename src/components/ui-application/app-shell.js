@@ -4,7 +4,7 @@ import AppNavbar from "./app-navbar";
 import AppSidebar from "./app-sidebar";
 
 export default function AppShell({ children, title }) {
-  const [sidebarOpen, setSidebarOpen] = React.useState(true);
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   function clickMe() {
     setSidebarOpen((prevState) => !prevState);

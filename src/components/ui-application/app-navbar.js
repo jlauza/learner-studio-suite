@@ -47,17 +47,17 @@ const AppNavbar = ({ title, clickMe }) => {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                {/* <img
+                <img
                   alt="Your Company"
                   src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
                   className="h-8 w-8"
-                /> */}
-                <Button onClick={clickMe}>
+                />
+                {/* <Button onClick={clickMe}>
                   <Bars3Icon
                     aria-hidden="true"
                     className="block h-6 w-6 text-white"
                   />
-                </Button>
+                </Button> */}
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
