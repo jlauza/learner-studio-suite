@@ -40,7 +40,6 @@ function classNames(...classes) {
 }
 
 const AppNavbar = ({ title, clickMe, session }) => {
-  console.log(session.user);
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800">
