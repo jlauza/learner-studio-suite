@@ -5,6 +5,7 @@ import AppShell from "@/components/ui-application/app-shell";
 
 export default async function Dashboard() {
   const session = await getServerSession(options);
+
   if (!session) {
     return {
       redirect: {
@@ -18,7 +19,7 @@ export default async function Dashboard() {
 
   return (
     <>
-      <AppShell title={title}>
+      <AppShell title={title} session={session}>
         <h1>Welcome to dashboard, {session.user?.name}!</h1>
       </AppShell>
     </>

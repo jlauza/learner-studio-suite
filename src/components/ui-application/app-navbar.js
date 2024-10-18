@@ -22,7 +22,7 @@ const navigation = [
   {
     name: "Dashboard",
     href: "/dashboard",
-    current: true,
+    current: false,
   },
   { name: "Team", href: "/team", current: false },
   { name: "Projects", href: "#", current: false },
@@ -30,7 +30,7 @@ const navigation = [
   { name: "Reports", href: "#", current: false },
 ];
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
+  { name: "Profile", href: "/profile" },
   { name: "Settings", href: "#" },
   { name: "Sign out", href: "/api/auth/signout" },
 ];
@@ -39,7 +39,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const AppNavbar = ({ title, clickMe }) => {
+const AppNavbar = ({ title, clickMe, session }) => {
+  console.log(session.user);
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800">
@@ -97,7 +98,7 @@ const AppNavbar = ({ title, clickMe }) => {
                       <span className="sr-only">Open user menu</span>
                       <img
                         alt=""
-                        src={user.imageUrl}
+                        src={session?.user.image}
                         className="h-8 w-8 rounded-full"
                       />
                     </MenuButton>
@@ -161,16 +162,16 @@ const AppNavbar = ({ title, clickMe }) => {
               <div className="flex-shrink-0">
                 <img
                   alt=""
-                  src={user.imageUrl}
+                  src={session?.user.image}
                   className="h-10 w-10 rounded-full"
                 />
               </div>
               <div className="ml-3">
                 <div className="text-base font-medium leading-none text-white">
-                  {user.name}
+                  {session?.user.name}
                 </div>
                 <div className="text-sm font-medium leading-none text-gray-400">
-                  {user.email}
+                  {session?.user.email}
                 </div>
               </div>
               <button
