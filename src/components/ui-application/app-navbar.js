@@ -11,6 +11,12 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import AppHeader from "./app-header-title";
+import {
+  EnterIcon,
+  PersonIcon,
+  GearIcon,
+  ExitIcon,
+} from "@radix-ui/react-icons";
 
 const userNavigation = [
   { name: "Profile", href: "/profile" },
@@ -35,7 +41,7 @@ const AppNavbar = ({ title, session }) => {
           leaveTo="opacity-0"
           as={React.Fragment}
         >
-          <div className="fixed inset-0 bg-gray-600 bg-opacity-75" />
+          <div className="fixed inset-0 bg-gray-600 bg-opacity-75 z-40" />
         </TransitionChild>
 
         {/* Sidebar Panel */}
@@ -48,9 +54,9 @@ const AppNavbar = ({ title, session }) => {
           leaveTo="-translate-x-full"
           as={React.Fragment}
         >
-          <div className="fixed inset-y-0 left-0 flex max-w-full">
-            <div className="w-screen max-w-xs bg-white p-6">
-              <div className="flex items-center justify-between">
+          <div className="fixed inset-y-0 left-0 flex max-w-full z-50">
+            <div className="w-screen max-w-xs bg-white p-0">
+              <div className="flex items-center justify-between p-4">
                 <h2 className="text-lg font-semibold">Navigation</h2>
                 <button
                   className="text-gray-400"
@@ -121,18 +127,8 @@ const AppNavbar = ({ title, session }) => {
                       />
                     </MenuButton>
                   </div>
-                  <MenuItems className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    {userNavigation.map((item) => (
-                      <MenuItem key={item.name}>
-                        <a
-                          href={item.href}
-                          className="block px-4 py-2 text-sm text-gray-700"
-                        >
-                          {item.name}
-                        </a>
-                      </MenuItem>
-                    ))}
-                  </MenuItems>
+                  {/* Menu Items for User */}
+                  <UserMenu />
                 </Menu>
               </div>
             </div>
@@ -144,5 +140,38 @@ const AppNavbar = ({ title, session }) => {
     </>
   );
 };
+
+function UserMenu() {
+  return (
+    <>
+      <MenuItems className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <MenuItem>
+          <a
+            href={userNavigation[0].href}
+            className="flex items-center justify-start px-4 py-2 text-sm text-gray-700"
+          >
+            <PersonIcon className="mr-2" /> {userNavigation[0].name}
+          </a>
+        </MenuItem>
+        <MenuItem>
+          <a
+            href={userNavigation[1].href}
+            className="flex items-center justify-start px-4 py-2 text-sm text-gray-700"
+          >
+            <GearIcon className="mr-2" /> {userNavigation[1].name}
+          </a>
+        </MenuItem>
+        <MenuItem>
+          <a
+            href={userNavigation[2].href}
+            className="flex items-center justify-start px-4 py-2 text-sm text-gray-700"
+          >
+            <ExitIcon className="mr-2" /> {userNavigation[2].name}
+          </a>
+        </MenuItem>
+      </MenuItems>
+    </>
+  );
+}
 
 export default AppNavbar;
