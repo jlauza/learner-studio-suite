@@ -3,7 +3,6 @@
 import { options } from "../api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 import AppShell from "@/components/ui-application/app-shell";
-import AppNavbar from "@/components/ui-application/app-navbar";
 
 export default async function Dashboard() {
   const session = await getServerSession(options);
@@ -11,7 +10,7 @@ export default async function Dashboard() {
     redirect("/api/auth/signin?callbackUrl=/server");
   }
 
-  const title = "Team";
+  const title = "Team Members";
 
   return (
     <>
