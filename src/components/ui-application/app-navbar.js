@@ -33,6 +33,7 @@ const sideNavigation = [
 
 const AppNavbar = ({ title, session }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  console.log(session);
 
   return (
     <>
