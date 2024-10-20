@@ -33,6 +33,8 @@ const sideNavigation = [
 const AppNavbar = ({ title, session }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  console.log("avatar", session.user.image);
+
   return (
     <>
       {/* Flyover/Slide Panel */}
