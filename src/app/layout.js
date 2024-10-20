@@ -5,6 +5,8 @@ import AuthProvider from "./context/AuthProvider";
 import localFont from "next/font/local";
 import "./globals.css";
 import { options } from "./api/auth/[...nextauth]/options";
+import "@radix-ui/themes/styles.css";
+import { Theme } from "@radix-ui/themes";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,7 +32,9 @@ export default function RootLayout({ children }) {
           (`${geistSans.variable} ${geistMono.variable} antialiased`, "h-full")
         }
       >
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <Theme>{children}</Theme>
+        </AuthProvider>
       </body>
     </html>
   );
