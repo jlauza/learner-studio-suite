@@ -16,12 +16,18 @@ import {
   PersonIcon,
   GearIcon,
   ExitIcon,
+  HomeIcon,
 } from "@radix-ui/react-icons";
 
 const userNavigation = [
   { name: "Profile", href: "/profile" },
   { name: "Settings", href: "#" },
   { name: "Sign out", href: "/api/auth/signout" },
+];
+
+const sideNavigation = [
+  { name: "Dashboard", href: "/dashboard" },
+  { name: "Team Members", href: "/team" },
 ];
 
 const AppNavbar = ({ title, session }) => {
@@ -66,15 +72,7 @@ const AppNavbar = ({ title, session }) => {
                 </button>
               </div>
               <nav className="mt-6">
-                {userNavigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                <NavigationMenu />
               </nav>
             </div>
           </div>
@@ -94,15 +92,15 @@ const AppNavbar = ({ title, session }) => {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <a
                     href="/dashboard"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="flex items-center justify-start text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Dashboard
+                    <HomeIcon className="mr-2" /> Dashboard
                   </a>
                   <a
                     href="/team"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="flex items-center justify-start text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Team
+                    <PersonIcon className="mr-2" /> Team
                   </a>
                 </div>
               </div>
@@ -141,7 +139,7 @@ const AppNavbar = ({ title, session }) => {
   );
 };
 
-function UserMenu() {
+const UserMenu = () => {
   return (
     <>
       <MenuItems className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
@@ -172,6 +170,25 @@ function UserMenu() {
       </MenuItems>
     </>
   );
-}
+};
+
+const NavigationMenu = () => {
+  return (
+    <>
+      <a
+        href={sideNavigation[0].href}
+        className="flex items-center justify-start px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+      >
+        <HomeIcon className="mr-2" /> {sideNavigation[0].name}
+      </a>
+      <a
+        href={sideNavigation[1].href}
+        className="flex items-center justify-start px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+      >
+        <PersonIcon className="mr-2" /> {sideNavigation[1].name}
+      </a>
+    </>
+  );
+};
 
 export default AppNavbar;
