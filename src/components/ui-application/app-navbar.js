@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import {
   Disclosure,
   DisclosureButton,
-  DisclosurePanel,
   Menu,
   MenuButton,
   MenuItem,
   MenuItems,
   Transition,
+  TransitionChild,
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import AppHeader from "./app-header-title";
@@ -24,53 +24,55 @@ const AppNavbar = ({ title, session }) => {
   return (
     <>
       {/* Flyover/Slide Panel */}
-      <Transition show={sidebarOpen}>
-        <div className="relative z-40">
-          <Transition.Child
-            enter="transition-opacity ease-linear duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-gray-600 bg-opacity-75" />
-          </Transition.Child>
+      <Transition show={sidebarOpen} as={React.Fragment}>
+        {/* Overlay */}
+        <TransitionChild
+          enter="transition-opacity ease-linear duration-300"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity ease-linear duration-300"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+          as={React.Fragment}
+        >
+          <div className="fixed inset-0 bg-gray-600 bg-opacity-75" />
+        </TransitionChild>
 
-          <Transition.Child
-            enter="transition ease-in-out duration-300 transform"
-            enterFrom="-translate-x-full"
-            enterTo="translate-x-0"
-            leave="transition ease-in-out duration-300 transform"
-            leaveFrom="translate-x-0"
-            leaveTo="-translate-x-full"
-          >
-            <div className="fixed inset-y-0 left-0 flex max-w-full">
-              <div className="w-screen max-w-xs bg-white p-6">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold">Navigation</h2>
-                  <button
-                    className="text-gray-400"
-                    onClick={() => setSidebarOpen(false)}
-                  >
-                    <XMarkIcon className="h-6 w-6" />
-                  </button>
-                </div>
-                <nav className="mt-6">
-                  {userNavigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </nav>
+        {/* Sidebar Panel */}
+        <TransitionChild
+          enter="transition ease-in-out duration-300 transform"
+          enterFrom="-translate-x-full"
+          enterTo="translate-x-0"
+          leave="transition ease-in-out duration-300 transform"
+          leaveFrom="translate-x-0"
+          leaveTo="-translate-x-full"
+          as={React.Fragment}
+        >
+          <div className="fixed inset-y-0 left-0 flex max-w-full">
+            <div className="w-screen max-w-xs bg-white p-6">
+              <div className="flex items-center justify-between">
+                <h2 className="text-lg font-semibold">Navigation</h2>
+                <button
+                  className="text-gray-400"
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  <XMarkIcon className="h-6 w-6" />
+                </button>
               </div>
+              <nav className="mt-6">
+                {userNavigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </nav>
             </div>
-          </Transition.Child>
-        </div>
+          </div>
+        </TransitionChild>
       </Transition>
 
       <Disclosure as="nav" className="bg-gray-800">
@@ -137,6 +139,7 @@ const AppNavbar = ({ title, session }) => {
           </div>
         </div>
       </Disclosure>
+
       <AppHeader title={title} />
     </>
   );

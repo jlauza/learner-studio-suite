@@ -1,7 +1,7 @@
 "use client";
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
-import { GithubOutlined } from "@ant-design/icons";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 const GitHubSignIn = () => {
   const searchParams = useSearchParams();
@@ -17,7 +17,7 @@ const GitHubSignIn = () => {
           })
         }
       >
-        <GithubOutlined /> Sign in with GitHub
+        <GitHubLogoIcon /> Sign in with GitHub
       </button>
     </>
   );

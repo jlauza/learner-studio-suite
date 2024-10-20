@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import GitHubSignIn from "./GitHubSingInButton";
-import Image from "next/image";
 
 export default function SignInForm() {
   return (

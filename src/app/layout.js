@@ -1,10 +1,8 @@
 // This page is equevalent to _app.js
 import React from "react";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
 import AuthProvider from "./context/AuthProvider";
 import localFont from "next/font/local";
 import "./globals.css";
-import { options } from "./api/auth/[...nextauth]/options";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 

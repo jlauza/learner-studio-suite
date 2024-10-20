@@ -15,7 +15,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { ChevronDownIcon } from "@radix-ui/themes";
 import { Field, Label, Switch } from "@headlessui/react";
 
 export default function ContactSales() {
