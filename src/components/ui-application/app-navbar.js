@@ -18,6 +18,7 @@ import {
   ExitIcon,
   HomeIcon,
 } from "@radix-ui/react-icons";
+import * as Avatar from "@radix-ui/react-avatar";
 
 const userNavigation = [
   { name: "Profile", href: "/profile" },
@@ -120,11 +121,19 @@ const AppNavbar = ({ title, session }) => {
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <MenuButton className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm">
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src={session?.user.image}
-                        alt=""
-                      />
+                      <Avatar.Root className="AvatarRoot">
+                        <Avatar.Image
+                          className="AvatarImage h-8 w-8 rounded-full"
+                          src={session?.user.image}
+                          alt={session?.user.name}
+                        />
+                        <Avatar.Fallback
+                          className="AvatarFallback h-8 w-8 rounded-full"
+                          delayMs={600}
+                        >
+                          {session?.user.name.charAt(0)}
+                        </Avatar.Fallback>
+                      </Avatar.Root>
                     </MenuButton>
                   </div>
                   {/* Menu Items for User */}
