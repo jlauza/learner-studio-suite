@@ -14,7 +14,7 @@ export default async function Dashboard() {
 
   return (
     <>
-      <AppShell title={title}>
+      <AppShell title={title} session={session}>
         <h1>
           Welcome to {title}, {session.user?.name}!
         </h1>
