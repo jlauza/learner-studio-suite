@@ -242,10 +242,13 @@ const AppNavbar = ({ title, session }) => {
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <MenuButton className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm">
-                      {!session?.user.image ? (
+                      {/* {!session?.user.image ? (
                         <img
                           className="h-8 w-8 rounded-full"
-                          src={session?.user.image}
+                          src={
+                            session?.user.image ||
+                            "https://via.placeholder.com/150"
+                          }
                           alt={session?.user.name}
                         />
                       ) : (
@@ -254,7 +257,24 @@ const AppNavbar = ({ title, session }) => {
                             <Strong>{session?.user.name.charAt(0)}</Strong>
                           </Text>
                         </Box>
-                      )}
+                      )} */}
+
+                      <Avatar.Root className="AvatarRoot">
+                        <Avatar.Image
+                          className="AvatarImage h-8 w-8 rounded-full"
+                          src={
+                            session?.user.image ||
+                            "https://avatar.iran.liara.run/public"
+                          }
+                          alt={session?.user.name}
+                        />
+                        {/* <Avatar.Fallback
+                          className="AvatarFallback"
+                          delayMs={600}
+                        >
+                          <Strong>{session?.user.name.charAt(0)}</Strong>
+                        </Avatar.Fallback> */}
+                      </Avatar.Root>
                     </MenuButton>
                   </div>
                   {/* Menu Items for User */}
