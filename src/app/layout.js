@@ -18,8 +18,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Taskier",
-  description: "A task organizer app.",
+  title: "Dance Studio Suite",
+  description: "A dance studio suite app for bookings and enrollments.",
 };
 
 export default function RootLayout({ children }) {
