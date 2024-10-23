@@ -242,23 +242,6 @@ const AppNavbar = ({ title, session }) => {
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <MenuButton className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm">
-                      {/* {!session?.user.image ? (
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src={
-                            session?.user.image ||
-                            "https://via.placeholder.com/150"
-                          }
-                          alt={session?.user.name}
-                        />
-                      ) : (
-                        <Box className="h-8 w-8 rounded-full bg-gray-100 flex items-center justify-center">
-                          <Text size="4">
-                            <Strong>{session?.user.name.charAt(0)}</Strong>
-                          </Text>
-                        </Box>
-                      )} */}
-
                       <Avatar.Root className="AvatarRoot">
                         <Avatar.Image
                           className="AvatarImage h-8 w-8 rounded-full"
